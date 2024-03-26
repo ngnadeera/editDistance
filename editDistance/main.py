@@ -1,5 +1,6 @@
 
 def computeEditDistance (s,t):
+    cache = {}
 
     '''
 
@@ -9,6 +10,9 @@ def computeEditDistance (s,t):
     '''
 
     def recurse(m,n):
+
+        if (m,n) in cache:
+            return cache[(m,n)]
 
         '''
 
@@ -29,7 +33,8 @@ def computeEditDistance (s,t):
             delCost = 1 + recurse(m-1,n)
 
             result = min(subCost,insCost,delCost)
-            return result
+        cache[(m,n)] = result
+        return result
     return recurse(len(s),len(t))
 
 
