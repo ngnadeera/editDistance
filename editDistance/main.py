@@ -1,26 +1,21 @@
 
+from gradientDecend import gradientDecend
+
 def computeEditDistance (s,t):
     cache = {}
-
     '''
-
     :param s: s word
     :param t: t word
     :return: minimum number of letters needed to be changed in order to make s equal to t
     '''
-
     def recurse(m,n):
-
         if (m,n) in cache:
             return cache[(m,n)]
-
         '''
-
         :param m: len of s
         :param n: len of t
         :return: minimum number of letters needed to be changed in order to make s equal to t
         '''
-
         if m == 0:
             return n
         elif n == 0:
@@ -41,6 +36,9 @@ def computeEditDistance (s,t):
 if __name__ == '__main__':
     result = computeEditDistance("cat", "cats")
     print("result: ", result)
+
+
+    gradientDecend()
 
 
 
